@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="h-screen bg-gradient-to-r from-teal-900 via-teal-500 to-teal-900 flex justify-center items-center"
+    >
+      <form
+        method="POST"
+        class="w-full max-w-xs bg-white flex flex-col py-5 px-8 rounded-lg shadow-lg"
+        action="create"
+      >
+        <h1
+          class="block w-full text-center text-gray-800 text-2xl font-bold mb-6"
+        >
+          Register
+        </h1>
+        <label
+          class="text-gray-700 font-bold py-2"
+          for="username"
+          name="username"
+          >User Name</label
+        >
+        <input
+          class="text-gray-700 shadow border rounded border-gray-300 focus:outline-none focus:shadow-outline py-1 px-3 mb-3"
+          type="text"
+          placeholder="Username"
+          name="username"
+        />
+
+        <label class="text-gray-700 font-bold py-2" for="" name="name"
+          >Name</label
+        >
+        <input
+          class="text-gray-700 shadow border rounded border-gray-300 focus:outline-none focus:shadow-outline py-1 px-3 mb-3"
+          type="text"
+          placeholder="Name"
+          name="name"
+        />
+
+        <label class="text-gray-700 font-bold py-2" for="" name="useremail"
+          >Email Id</label
+        >
+        <input
+          class="text-gray-700 shadow border rounded border-gray-300 focus:outline-none focus:shadow-outline py-1 px-3 mb-3"
+          type="text"
+          placeholder="Email Id"
+          name="useremail"
+        />
+
+        <label class="text-gray-700 font-bold py-2" for="" name="userpass"
+          >Password</label
+        >
+        <input
+          class="text-gray-700 shadow border rounded border-gray-300 mb-3 py-1 px-3 focus:outline-none focus:shadow-outline"
+          type="password"
+          placeholder="password"
+          name="userpass"
+        />
+        <div class="text-red-700">
+          {% for key in msg %}
+          <h4>{{ msg[key] }}</h4>
+          {% endfor %}
+        </div>
+        <div class="flex justify-between items-center my-4">
+          <button
+            class="bg-teal-900 hover:bg-blue-700 text-white font-bold rounded py-2 px-4"
+            type="submit"
+            formaction="create"
+          >
+            <input
+              type="Submit"
+              formaction="create"
+              value="Register"
+              class="text-black bg-teal-900 hover:bg-blue-700 text-white"
+            />
+            <!-- <a href="/templates/login.html"> Register </a> -->
+          </button>
+        </div>
+        <div class="text-md">
+          Already have an account?
+          <a
+            class="hover:text-blue-700 underline font-bold rounded py-2"
+            href="login"
+            >Log in</a
+          >
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

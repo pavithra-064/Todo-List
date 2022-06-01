@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do list</title>
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static',filename='custom.css')}}"
+  />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="bg-gray-800">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative h-16">
+          <div class="absolute inset-y-0 left-0 flex ">
+            <button
+              type="button"
+              class="inline-flex items-center  p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >TO-DO
+            </button>
+          </div>
+          <div
+            class="float-right right"
+          >
+          <form method = "GET">
+            <div class="hidden sm:block sm:ml-6 flex-1 flex sm:justify-end mt-3">
+              <div class="flex space-x-4 float-right">
+                <button formaction="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</button>
+
+                <button formaction="create" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Register
+                </button>
+                <button formaction="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+      </div>
+    </nav>
+    <div
+    class="h-screen bg-gradient-to-r from-teal-900 via-teal-500 to-teal-900 flex justify-center items-center"
+  >
+
+          <h1 class="typing-demo"> TO-DO LIST</h1>
+    </div>
+         
+  </body>
+</html>

@@ -1,0 +1,75 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="h-screen bg-gradient-to-r from-teal-900 via-teal-500 to-teal-900 flex justify-center items-center"
+    >
+      <form
+        method="POST"
+        class="w-full max-w-xs bg-gray-100 flex flex-col py-5 px-8 rounded-lg shadow-lg"
+        action="login"
+      >
+        <h1
+          class="block w-full text-center text-gray-800 text-2xl font-bold mb-6"
+        >
+          Login
+        </h1>
+        <label class="text-gray-700 font-bold py-2" for="" name="useremail"
+          >Email Id</label
+        >
+        <input
+          class="text-gray-700 shadow border rounded border-gray-300 focus:outline-none focus:shadow-outline py-1 px-3 mb-3"
+          type="text"
+          placeholder="abc@gmail.com"
+          name="username"
+        />
+        <label class="text-gray-700 font-bold py-2" for="" name="userpass"
+          >Password</label
+        >
+        <input
+          class="text-gray-700 shadow border rounded border-gray-300 mb-3 py-1 px-3 focus:outline-none focus:shadow-outline"
+          type="password"
+          placeholder="********"
+          name="userpass"
+        />
+        <div class="text-red-700">
+          {% for key in msg %}
+          <h4>{{ msg[key] }}</h4>
+          {% endfor %}
+        </div>
+        <div class="flex justify-between items-center my-4">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-2 px-4"
+          >
+            <input
+              type="Submit"
+              formaction="login"
+              value="Login"
+              class="bg-blue-500 hover:bg-blue-700"
+            />
+          </button>
+          <button
+            class="hover:text-blue-700 underline font-bold rounded py-2 px-4"
+          >
+            <a href="/create"> Sign Up </a>
+          </button>
+          <!-- <a class="text-blue-600 hover:text-blue-800 font-bold" href="#">
+            Forgot Password?
+          </a> -->
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock content %}

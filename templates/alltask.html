@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='custom.css')}}"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="bg-gray-800">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative h-16">
+          <div class="absolute inset-y-0 left-0 flex ">
+            <button
+              type="button"
+              class="inline-flex items-center  p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >TO-DO
+            </button>
+          </div>
+          <div
+            class="float-right right"
+          >
+          <form method = "GET">
+            <div class="hidden sm:block sm:ml-6 flex-1 flex sm:justify-end mt-3">
+              <div class="flex space-x-4 float-right">
+                <button formaction="/addtask" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add Task</button>
+
+                <button formaction="/tasks" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">View Task
+                </button>
+                <button formaction="/logout" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+    
+    </nav>
+    <div
+      class="h-screen bg-gradient-to-r from-teal-900 via-teal-500 to-teal-900 flex justify-center items-center"
+    >
+    
+      <table class="table-auto wrapper  ">
+        <thead>
+          <tr>
+            <th>Due date</th>
+            <th>Task</th>
+          </tr>
+        </thead>
+        <tbody class="todoList  my-4 py-5">
+          {% for task in current_user.task %}
+          <tr>
+            <td class="px-4">{{task.date}}</td>
+            <td class="pr-1">{{task.description}}</td>
+            <td>
+              <button class="btn btn-danger mr-8">
+                <a href="{{ url_for('delete',id=task.id) }}">Delete</a>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <!-- <div class="container table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>
+                <button
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#newtask"
+                >
+                  New
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for task in current_user.task %}
+            <tr>
+              <td>{{task.date}}</td>
+              <td>{{task.description}}</td>
+
+              <td>
+                <div class="btn-group" role="group" aria-label="btn group">
+                  <form method="post">
+                    <input type="hidden" name="action" value="delete" />
+                    <input type="hidden" name="id" value="{{task.id}}" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                  <button
+                    class="btn btn-warning"
+                    onclick="edittask('{{task.id}}','{{task.date}}','{{task.description}}')"
+                  >
+                    Modify
+                  </button>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-red-700">
+        {% for key in msg %}
+        <h4>{{ msg[key] }}</h4>
+        {% endfor %}
+      </div>
+      <div class="wrapper">
+        {{current_user.Tasks}} {% for task in current_user.Tasks %}
+        <tr>
+          <td>{{task.date}}</td>
+          <td>{{task.description}}</td>
+        </tr>
+        {% endfor %}
+        <ul class="todoList"></ul> -->
+    </div>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>
